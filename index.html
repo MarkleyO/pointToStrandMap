@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Leaflet Map</title>
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <!-- Add the Leaflet JavaScript library -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+</head>
+<body>
+  <!--map goes here -->
+  <div id="map" style="width: 900px; height: 600px"></<div>
+    <script>
+
+      var map = L.map('map',{ center: [44.56576, -123.27888], zoom:16});
+      var layer1 = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: 'Map Author: Owen'
+      })
+      layer1.addTo(map);
+
+      // var myDataPoint = L.marker([44.56822, -123.28034]).addTo(map);
+      // var myDataLine = L.polyline([[44.5656915, -123.2775289], [44.5656992, -123.2778923], [44.5662266, -123.2778722], [44.5682559, -123.2778293], [44.5682445, -123.2800823]],
+      // {color: 'red', weight: 5}).addTo(map);
+
+      var layer2 = L.geoJson.ajax("assets/geog371.geojson").addTo(map);
+
+    </script>
+</body>
+</html>
