@@ -1,7 +1,7 @@
 #Lab 3 Write-Up
 >Spring 2019 | Owen Markley | Geography 472: Geovisual Analytics
 >Bo Zhao | Wilkinson 210 | T 500 - 700 pm
->Due May 2nd, 2019
+>Due April 30th, 2019
 
 **Intro**
 
