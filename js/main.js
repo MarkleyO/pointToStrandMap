@@ -22,9 +22,8 @@ var mymap = L.map('map', {
 // L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(mymap);
 
 var airPorts = null;
-
 airPorts = L.geoJson.ajax("assets/airports.geojson",{
-  attribution: 'idk where its from',
+  attribution: 'Airports provided by Mike Bostock of D3',
   onEachFeature: function (feature, layer){
     layer.bindPopup(feature.properties.AIRPT_NAME);
   },
@@ -38,7 +37,6 @@ airPorts = L.geoJson.ajax("assets/airports.geojson",{
 airPorts.addTo(mymap);
 
 var colors = chroma.scale('Purples').mode('hs1').colors(5);
-
 function setColor(density){
   var id=0;
   if(density>16){id=4;}
@@ -60,12 +58,7 @@ function style(feature){
   };
 }
 
-L.geoJson.ajax("assets/usStates.geoJson",{
-  style: style
-}).addTo(mymap);
-
 var legend = L.control({position: 'topright'});
-
 legend.onAdd = function(){
   var div = L.DomUtil.create('div', 'legend');
   div.innerHTML += '<b># Airports</b><br />';
@@ -79,7 +72,6 @@ legend.onAdd = function(){
   div.innerHTML += '<i class="fa fa-plane-departure marker-color-2"></i><p> No</p>';
   return div;
 };
-
 legend.addTo(mymap);
 
 // L.control.scale({position: 'bottomleft'}).addTo(mymap);
